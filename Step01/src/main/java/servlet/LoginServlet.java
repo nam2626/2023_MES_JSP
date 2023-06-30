@@ -31,6 +31,12 @@ public class LoginServlet extends HttpServlet {
 		String id = request.getParameter("id");
 		String passwd = request.getParameter("passwd");
 		System.out.println(id + " , " + passwd);
+		
+		//스트림으로 출력시 한글 설정 해야 글자가 안깨짐
+		response.setContentType("text/html;charset=utf-8");
+		response.getWriter().append("<h2>로그인 결과</h2>");
+		response.getWriter().append("아이디 : " + id + "<br>");
+		response.getWriter().append("암호 : " + passwd + "<br>");
 	}
 
 	/**
