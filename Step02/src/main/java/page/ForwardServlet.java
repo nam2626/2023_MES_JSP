@@ -26,6 +26,8 @@ public class ForwardServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		//request 영역에 값을 저장하는 방법
+		request.setAttribute("msg", "안녕하세요");
 		//페이지 이동
 		request.getRequestDispatcher("02_forward_result.jsp").forward(request, response);
 	}

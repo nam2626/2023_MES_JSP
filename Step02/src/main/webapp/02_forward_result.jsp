@@ -8,6 +8,7 @@
 </head>
 <body>
 	<h2>forward 이동 결과</h2>
+	<p><%=request.getAttribute("msg") %></p>
 	<a href="01_page_move.jsp">이동 테스트 페이지</a>
 </body>
 </html>
