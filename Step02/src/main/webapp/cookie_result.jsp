@@ -51,6 +51,14 @@
             }
         }
       getAllCookie();
+      //쿠키 삭제
+      function deleteCookie(name){
+          //쿠키 삭제는 해당 쿠키값을 재설정 하면서 날짜를 현재 날짜 이전으로 셋팅
+          let date = new Date();
+          date.setDate(date.getDate()-1);
+          let cookie = `${name}=test; expires=${date.toUTCString()}; path=/`;
+          document.cookie = cookie;
+      }
 	</script>	
 </body>
 </html>
