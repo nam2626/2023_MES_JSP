@@ -29,6 +29,16 @@ public class ApplicationServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		ServletContext application = request.getServletContext();
+		
+		int count = 0;
+		
+		if(application.getAttribute("count") != null)
+			count = (int) application.getAttribute("count");
+		
+		count++;
+		application.setAttribute("count", count);
+		
+		response.sendRedirect("application_scope_result.jsp");
 	}
 
 	/**
