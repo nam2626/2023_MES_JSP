@@ -1,5 +1,8 @@
 package dto;
 
+import org.json.JSONPropertyIgnore;
+import org.json.JSONPropertyName;
+
 public class MemberDTO {
 	private String id;
 	private String passwd;
@@ -34,7 +37,7 @@ public class MemberDTO {
 	public void setPasswd(String passwd) {
 		this.passwd = passwd;
 	}
-
+	@JSONPropertyName("user_name")
 	public String getName() {
 		return name;
 	}
@@ -42,7 +45,7 @@ public class MemberDTO {
 	public void setName(String name) {
 		this.name = name;
 	}
-
+	@JSONPropertyIgnore //JSON으로 변환하는 대상에서 제외
 	public String getNick() {
 		return nick;
 	}
