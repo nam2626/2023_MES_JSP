@@ -44,7 +44,7 @@ public class TestServlet extends HttpServlet {
 		list.add(new MemberDTO("B0005", "1234", "DDDDD", "D1234", 2));
 		request.setAttribute("list", list);
 		//request 영역에 나이값 하나 저장
-		request.setAttribute("age", 40);
+		request.setAttribute("age", 35);
 		//페이지 이동은 jstl_el.jsp로 이동(forward)
 		request.getRequestDispatcher("jstl_el.jsp").forward(request, response);
 
