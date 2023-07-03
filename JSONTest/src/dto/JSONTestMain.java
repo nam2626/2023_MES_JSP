@@ -2,6 +2,7 @@ package dto;
 
 import java.util.ArrayList;
 
+import org.json.JSONArray;
 import org.json.JSONObject;
 
 public class JSONTestMain {
@@ -24,7 +25,10 @@ public class JSONTestMain {
 		list.add(new MemberDTO("B0004", "1234", "CCCCC", "CD234", 4));
 		list.add(new MemberDTO("B0005", "1234", "DDDDD", "D1234", 2));
 		
-		
+		//JSONArray <-- json 객체를 배열로 저장
+		JSONArray arr = new JSONArray(list);
+		System.out.println(arr.toString());
+		json.put("list", arr);
 		System.out.println(json.toString());
 	}
 
