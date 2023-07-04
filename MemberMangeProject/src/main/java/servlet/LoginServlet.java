@@ -6,6 +6,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import dto.MemberDTO;
 import service.MemberService;
@@ -36,6 +37,8 @@ public class LoginServlet extends HttpServlet {
 		MemberDTO member = MemberService.getInstance().login(id,passwd);
 		
 		if(member != null) {
+			HttpSession session = request.getSession();
+			session.setAttribute("user", member);
 			//아이디 비밀번호가 일치해서 회원정보 조회한 경우
 			request.getRequestDispatcher("main.jsp").forward(request, response);
 		}else {

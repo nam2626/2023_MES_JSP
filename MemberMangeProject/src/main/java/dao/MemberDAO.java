@@ -35,7 +35,7 @@ public class MemberDAO {
 			rs = pstmt.executeQuery();
 			
 			while(rs.next()) {
-				dto = new MemberDTO(rs.getString(1), rs.getString(2), rs.getString(3), 
+				dto = new MemberDTO(rs.getString(1), null, rs.getString(3), 
 						rs.getInt(4), rs.getString(5).charAt(0));
 			}
 		} catch (SQLException e) {
