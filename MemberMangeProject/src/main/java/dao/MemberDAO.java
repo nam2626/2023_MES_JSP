@@ -1,8 +1,10 @@
 package dao;
 
+import java.lang.reflect.Array;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 import config.DBManager;
 import dto.MemberDTO;
@@ -45,6 +47,29 @@ public class MemberDAO {
 		}
 		
 		return dto;
+	}
+
+	public ArrayList<MemberDTO> selectAllMember() {
+		ArrayList<MemberDTO> list = new ArrayList<MemberDTO>();
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		String sql = "select * from member";
+		
+		try {
+			pstmt = manager.getConn().prepareStatement(sql);
+			rs = pstmt.executeQuery();
+			
+			while(rs.next()) {
+				list.add( new MemberDTO(rs.getString(1), null, rs.getString(3), 
+						rs.getInt(4), rs.getString(5).charAt(0)));
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally {
+			manager.close(rs, pstmt);
+		}
+		
+		return list;
 	}
 
 	
