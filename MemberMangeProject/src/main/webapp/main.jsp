@@ -30,7 +30,9 @@
 				data : data,
 				type : 'post',
 				success:function(r){
-					if(r == '0'){
+					console.log(typeof r, typeof "0");
+					
+					if(Number(r) == 0){
 						alert('데이터 삭제 실패');
 						location.reload();
 					}else{
