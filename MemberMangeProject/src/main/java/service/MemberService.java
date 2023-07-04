@@ -1,5 +1,6 @@
 package service;
 
+import java.sql.SQLException;
 import java.util.ArrayList;
 
 import dao.MemberDAO;
@@ -28,6 +29,10 @@ public class MemberService {
 
 	public ArrayList<MemberDTO> selectAllMember() {
 		return dao.selectAllMember();
+	}
+
+	public void insertMember(MemberDTO dto) throws SQLException {
+		dao.insertMember(dto);
 	}
 
 	

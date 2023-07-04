@@ -72,6 +72,21 @@ public class MemberDAO {
 		return list;
 	}
 
+	public void insertMember(MemberDTO dto) throws SQLException {
+		PreparedStatement pstmt = null;
+		String sql = "insert into member values(?,?,?,?,?)";
+		
+		pstmt = manager.getConn().prepareStatement(sql);
+		
+		pstmt.setString(1, dto.getMemberId());
+		pstmt.setString(2, dto.getPasswd());
+		pstmt.setString(3, dto.getName());
+		pstmt.setInt(4, dto.getAge());
+		pstmt.setString(5, String.valueOf(dto.getGender()));
+		
+		pstmt.executeUpdate();
+	}
+
 	
 	
 	

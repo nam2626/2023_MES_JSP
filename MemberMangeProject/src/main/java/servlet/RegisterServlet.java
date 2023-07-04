@@ -1,6 +1,8 @@
 package servlet;
 
 import java.io.IOException;
+import java.sql.SQLException;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -8,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import dto.MemberDTO;
+import service.MemberService;
 
 /**
  * Servlet implementation class RegisterServlet
@@ -36,7 +39,15 @@ public class RegisterServlet extends HttpServlet {
 		
 		MemberDTO dto = new MemberDTO(id, passwd, name, age, gender.charAt(0));
 		
-		response.sendRedirect("main");
+		try {
+			MemberService.getInstance().insertMember(dto);
+			response.sendRedirect("main");
+		} catch (SQLException e) {
+			response.setContentType("text/html; charset=utf-8");
+			response.getWriter().append("<script>alert('데이터 등록 실패 입력한 데이터를 확인하세요');"
+					+ "history.back();</script>");
+		}
+		
 		
 	}
 
