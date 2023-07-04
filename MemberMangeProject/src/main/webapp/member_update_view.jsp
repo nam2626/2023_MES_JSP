@@ -33,13 +33,13 @@
 	<jsp:include page="template/header.jsp"></jsp:include>
 	<div class="container">
 		<form action="update" method="post">
-			<input type="text" name="id" placeholder="아이디 입력" readonly><br>
+			<input type="text" name="id" value="${member.memberId }" readonly><br>
 			<input type="password" name="passwd" placeholder="새 암호 입력" required><br>
-			<input type="text" name="name" placeholder="이름 입력" ><br>
-			<input type="text" name="age" placeholder="나이 입력"><br>
+			<input type="text" name="name" placeholder="이름 입력" value="${member.name }"><br>
+			<input type="text" name="age" placeholder="나이 입력" value="${member.age }"><br>
 			<select name="gender">
-				<option>M</option>
-				<option>F</option>
+				<option <c:if test='${member.gender == "M".charAt(0) }'>selected</c:if>>M</option>
+				<option <c:if test='${member.gender == "F".charAt(0) }'>selected</c:if>>F</option>
 			</select><br>
 			<button>수정</button>
 		</form>
