@@ -36,9 +36,15 @@
 			</tr>
 		</thead>
 		<tbody>
+			<!-- 
+				회원 아이디 클릭시 detail?id=아이디값   
+				회원정보 수정 페이지로 이동(member_update_view.jsp)
+				해당 페이지 폼에 회원 정보를 미리 셋팅
+			
+			 -->
 			<c:forEach items="${list }" var="m">
 				<tr>
-					<td>${ m.memberId}</td>
+					<td><a href="detail?id=${m.memberId}">${ m.memberId}</a></td>
 					<td>${ m.name}</td>
 					<td>${ m.age}</td>
 					<td>${ m.gender}</td>
