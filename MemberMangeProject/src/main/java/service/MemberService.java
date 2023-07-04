@@ -35,6 +35,10 @@ public class MemberService {
 		dao.insertMember(dto);
 	}
 
+	public MemberDTO selectMember(String id) {
+		return dao.selectMember(id);
+	}
+
 	
 }
 

@@ -87,6 +87,30 @@ public class MemberDAO {
 		pstmt.executeUpdate();
 	}
 
+	public MemberDTO selectMember(String id) {
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		MemberDTO dto = null;
+		String sql = "select * from member where member_id like ?";
+		
+		try {
+			pstmt = manager.getConn().prepareStatement(sql);
+			pstmt.setString(1, id);
+			rs = pstmt.executeQuery();
+			
+			while(rs.next()) {
+				dto = new MemberDTO(rs.getString(1), null, rs.getString(3),
+						rs.getInt(4), rs.getString(5).charAt(0));
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		
+		
+		return dto;
+	}
+
 	
 	
 	
