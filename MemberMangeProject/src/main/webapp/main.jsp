@@ -20,7 +20,27 @@
 </style>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
 <script>
-	
+	$(function(){
+		$('.btn_delete').click(function(){
+			//alert($(this).parent().parent().children().first().text());
+			let data = `id=\${$(this).parent().parent().children().first().text()}`;
+			console.log(data);
+			$.ajax({
+				url : 'delete',
+				data : data,
+				type : 'post',
+				success:function(r){
+					if(r == '0'){
+						alert('데이터 삭제 실패');
+						location.reload();
+					}else{
+						alert('데이터 삭제 성공');
+						$(this).parent().parent().remove();
+					}				
+				}
+			});
+		});
+	});
 </script>
 </head>
 <body>
@@ -33,6 +53,7 @@
 				<th>이름</th>
 				<th>나이</th>
 				<th>성별</th>
+				<th>비고</th>
 			</tr>
 		</thead>
 		<tbody>
@@ -48,6 +69,7 @@
 					<td>${ m.name}</td>
 					<td>${ m.age}</td>
 					<td>${ m.gender}</td>
+					<td><button type='button' class='btn_delete'>삭제</button></td>
 				</tr>
 			</c:forEach>
 		</tbody>
