@@ -26,7 +26,9 @@
 <body>
 	<!-- header.jsp include -->
 	<jsp:include page="template/header.jsp"></jsp:include>
-	
+	<c:forEach items="${list }" var="m">
+		<p>${m.toString() }</p>
+	</c:forEach>
 </body>
 </html>
 
