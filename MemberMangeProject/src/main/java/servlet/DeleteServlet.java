@@ -7,6 +7,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import service.MemberService;
+
 /**
  * Servlet implementation class DeleteServlet
  */
@@ -27,9 +29,11 @@ public class DeleteServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		//1. 아이디 받음
+		String id = request.getParameter("id");
 		//2. 서비스로 보내서 DAO까지 전달해서 삭제를 진행
+		int result = MemberService.getInstance().deleteMember(id);
 		//3. 삭제 결과를 받아서 writer 이용을 해서 클라이언트에게 전송
-		response.getWriter().println("0");
+		response.getWriter().println(String.valueOf(result));
 	}
 
 	/**

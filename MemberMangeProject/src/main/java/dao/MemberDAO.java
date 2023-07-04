@@ -127,6 +127,21 @@ public class MemberDAO {
 		return pstmt.executeUpdate();
 	}
 
+	public int deleteMember(String id)  {
+		PreparedStatement pstmt = null;
+		String sql = "delete from member where member_id like ?";
+		int result = 0;
+		try {
+			pstmt = manager.getConn().prepareStatement(sql);
+			pstmt.setString(1, id);
+			result = pstmt.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return result;
+		
+	}
+
 	
 	
 	

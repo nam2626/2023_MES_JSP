@@ -43,6 +43,10 @@ public class MemberService {
 		return dao.updateMember(dto);
 	}
 
+	public int deleteMember(String id) {
+		return dao.deleteMember(id);
+	}
+
 	
 }
 
