@@ -36,7 +36,7 @@
 		<select name="gender">
 		<option>M</option>
 		<option>F</option>
-		</select>
+		</select><br>
 		<button>회원정보 추가</button>
 	</form>
 </div>
