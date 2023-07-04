@@ -40,8 +40,15 @@
 	로그인 정보가 없으면 index.jsp로 이동하게끔 처리
 	이동하기 전에는 반드시 '로그인 정보가 없습니다. 로그인 페이지로 이동합니다.'
 	경고창으로 출력 후 이동 
+	jstl, el, javascript
  -->
- 
+<c:if test="${sessionScope.user == null }">
+	<script>
+		alert('로그인 정보가 없습니다.');
+		location.href = "index.jsp";
+	</script>
+
+</c:if>
  
  
  
