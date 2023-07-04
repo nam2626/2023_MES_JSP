@@ -26,9 +26,26 @@
 <body>
 	<!-- header.jsp include -->
 	<jsp:include page="template/header.jsp"></jsp:include>
-	<c:forEach items="${list }" var="m">
-		<p>${m.toString() }</p>
-	</c:forEach>
+	<table>
+		<thead>
+			<tr>
+				<th>아이디</th>
+				<th>이름</th>
+				<th>나이</th>
+				<th>성별</th>
+			</tr>
+		</thead>
+		<tbody>
+			<c:forEach items="${list }" var="m">
+				<tr>
+					<td>${ m.memberId}</td>
+					<td>${ m.name}</td>
+					<td>${ m.age}</td>
+					<td>${ m.gender}</td>
+				</tr>
+			</c:forEach>
+		</tbody>
+	</table>
 </body>
 </html>
 
