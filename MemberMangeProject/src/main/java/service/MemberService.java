@@ -39,6 +39,10 @@ public class MemberService {
 		return dao.selectMember(id);
 	}
 
+	public int updateMember(MemberDTO dto) throws SQLException{
+		return dao.updateMember(dto);
+	}
+
 	
 }
 

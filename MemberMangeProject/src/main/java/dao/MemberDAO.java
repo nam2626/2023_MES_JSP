@@ -111,6 +111,22 @@ public class MemberDAO {
 		return dto;
 	}
 
+	public int updateMember(MemberDTO dto) throws SQLException {
+		PreparedStatement pstmt = null;
+		String sql = "update member set member_passwd = ?, member_name = ?,"
+				+ " member_age = ?, member_gender = ? where member_id like ?";
+		
+		pstmt = manager.getConn().prepareStatement(sql);
+		
+		pstmt.setString(1, dto.getPasswd());
+		pstmt.setString(2, dto.getName());
+		pstmt.setInt(3, dto.getAge());
+		pstmt.setString(4, String.valueOf(dto.getGender()));
+		pstmt.setString(5, dto.getMemberId());
+		
+		return pstmt.executeUpdate();
+	}
+
 	
 	
 	
