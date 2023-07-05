@@ -7,6 +7,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 import config.DBManager;
+import dto.GradeDTO;
 import dto.MemberDTO;
 
 public class MemberDAO {
@@ -168,6 +169,29 @@ public class MemberDAO {
 			while(rs.next()) {
 				list.add( new MemberDTO(rs.getString(1), null, rs.getString(3), 
 						rs.getInt(4), rs.getString(5).charAt(0)));
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally {
+			manager.close(rs, pstmt);
+		}
+		
+		return list;
+	}
+
+	public ArrayList<GradeDTO> selectAllGrade() {
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		
+		ArrayList<GradeDTO> list = new ArrayList<GradeDTO>();
+		String sql = "select * from board_member_grade";
+		
+		try {
+			pstmt = manager.getConn().prepareStatement(sql);
+			rs = pstmt.executeQuery();
+			
+			while(rs.next()) {
+				list.add(new GradeDTO(rs.getInt(1), rs.getString(2)));
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();

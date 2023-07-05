@@ -4,6 +4,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 import dao.MemberDAO;
+import dto.GradeDTO;
 import dto.MemberDTO;
 
 //싱글톤 패턴 적용
@@ -49,6 +50,10 @@ public class MemberService {
 
 	public ArrayList<MemberDTO> searchMember(String kind, String search) {
 		return dao.searchMember(kind,search);
+	}
+
+	public ArrayList<GradeDTO> selectAllGrade() {
+		return dao.selectAllGrade();
 	}
 
 	
