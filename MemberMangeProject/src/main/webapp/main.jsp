@@ -74,7 +74,9 @@ td, th {
 		$('.btn_delete').click(delete_member);
 		
 		//검색 결과 초기화
-		
+		$('.btn_reset').click(function(){
+			location.reload();
+		});
 	});
 </script>
 </head>
