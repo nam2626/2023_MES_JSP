@@ -24,7 +24,28 @@
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
 <script>
+	function grade_update(){
+		let data = '';
+		$(this).sibilings('input').each(function(i,obj){
+			data += `${$(obj).attr('class')}=${$(obj).val()}&`;
+		});
+		
+		$.ajax({
+			url : 'grade/update',
+			data : data,
+			type : 'post',
+			dataType : 'json',
+			success : function(r){
+				if(r.result == 1){
+					alert('데이터 수정 완료');
+				}else{
+					alert('데이터 수정 실패');
+				}
+			}
+		});
+	}
 	$(function(){
+		$('.btn_update').click(grade_update);
 		$("#register_grade").submit(function (e) {
 			e.preventDefault();
 			
@@ -38,6 +59,21 @@
 				success : function(r){
 					console.log(r);
 					//결과를 태그에 변경
+					if(r.result == 0)
+						alert('등급 등록 실패, 데이터를 확인하세요');
+					else{
+						let tag = '';
+						for(let i=0;i<r.list.length;i++){
+							tag += `<p>`;
+							tag += `<input type='text' class='grade_no' value='\${r.list[i].gradeNo }' readonly>`;
+							tag += `<input type='text' class='grade_name' value='\${r.list[i].gradeName }'>`;
+							tag += `<button class='btn_update'>수정</button>`;
+							tag += `<button class='btn_delete'>삭제</button>`;
+							tag += `</p>`;
+						}
+						$('.content').html(tag);
+						$('.btn_update').click(grade_update);
+					}
 				}
 			});
 		});

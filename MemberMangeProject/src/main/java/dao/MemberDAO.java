@@ -180,7 +180,7 @@ public class MemberDAO {
 		ResultSet rs = null;
 
 		ArrayList<GradeDTO> list = new ArrayList<GradeDTO>();
-		String sql = "select * from board_member_grade";
+		String sql = "select * from board_member_grade order by grade_no";
 
 		try {
 			pstmt = manager.getConn().prepareStatement(sql);
