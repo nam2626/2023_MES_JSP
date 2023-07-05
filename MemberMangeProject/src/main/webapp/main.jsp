@@ -29,7 +29,7 @@
 				url : 'delete',
 				data : data,
 				type : 'post',
-				success:function(r){
+				success:(r)=>{
 					console.log(typeof r, typeof "0");
 					
 					if(Number(r) == 0){
@@ -37,6 +37,7 @@
 						location.reload();
 					}else{
 						alert('데이터 삭제 성공');
+						console.log($(this).parent().parent());
 						$(this).parent().parent().remove();
 					}				
 				}
@@ -50,6 +51,26 @@
 	<jsp:include page="template/header.jsp"></jsp:include>
 	<table>
 		<thead>
+			<tr>
+				<td colspan="5">
+					<!-- 
+						아이디, 이름, 성별 중 하나로 검색
+						아이디, 이름, 성별 중 하나 선택할 목록
+						검색어 받을 텍스트 상자,
+						검색을 수행할 버튼, 검색 결과를 리셋할 버튼
+					 -->
+					 <form>
+						 <select name="kind">
+						 	<option value="id">아이디</option>
+						 	<option value="name">이름</option>
+						 	<option value="gender">성별</option>
+						 </select>
+						 <input type="text" name="search" placeholder="검색어 입력하세요">
+						 <button type="button">검색</button>
+						 <button type="button">검색 초기화</button>
+					 </form>
+				</td>
+			</tr>
 			<tr>
 				<th>아이디</th>
 				<th>이름</th>
