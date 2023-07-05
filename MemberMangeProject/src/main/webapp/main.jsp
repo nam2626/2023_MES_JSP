@@ -1,24 +1,26 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <style>
-	table {
-		border-collapse: collapse;
-		margin:30px auto;
-	}
-	td, th{
-		padding: 10px;
-		font-size: 1.3em;
-		border : 1px solid black;
-		text-align: center;
-	}
+table {
+	border-collapse: collapse;
+	margin: 30px auto;
+}
+
+td, th {
+	padding: 10px;
+	font-size: 1.3em;
+	border: 1px solid black;
+	text-align: center;
+}
 </style>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
 <script>
 	$(function(){
 		$('.btn_search').click(function(){
@@ -30,6 +32,18 @@
 				dataType: 'json',
 				success:function(r){
 					console.log(r);
+					let tag = '';
+					for(let i=0;i<r.length;i++){
+						tag += `<tr>`;
+						tag += `<td><a href="detail?id=\${r[i].memberId}">\${ r[i].memberId}</a></td>`;
+						tag += `<td>\${ r[i].name}</td>`;
+						tag += `<td>\${ r[i].age}</td>`;
+						tag += `<td>\${ r[i].gender}</td>`;
+						tag += `<td><button type='button' class='btn_delete'>삭제</button></td>`;
+						tag += `</tr>`;
+					}
+					$('tbody').html(tag);
+					
 				}
 					
 			});
@@ -72,16 +86,15 @@
 						검색어 받을 텍스트 상자,
 						검색을 수행할 버튼, 검색 결과를 리셋할 버튼
 					 -->
-					 <form>
-						 <select name="kind">
-						 	<option value="id">아이디</option>
-						 	<option value="name">이름</option>
-						 	<option value="gender">성별</option>
-						 </select>
-						 <input type="text" name="search" placeholder="검색어 입력하세요">
-						 <button type="button" class="btn_search">검색</button>
-						 <button type="button" class="btn_reset">검색 초기화</button>
-					 </form>
+					<form>
+						<select name="kind">
+							<option value="id">아이디</option>
+							<option value="name">이름</option>
+							<option value="gender">성별</option>
+						</select> <input type="text" name="search" placeholder="검색어 입력하세요">
+						<button type="button" class="btn_search">검색</button>
+						<button type="button" class="btn_reset">검색 초기화</button>
+					</form>
 				</td>
 			</tr>
 			<tr>
