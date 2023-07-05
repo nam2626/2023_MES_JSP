@@ -47,6 +47,10 @@ public class MemberService {
 		return dao.deleteMember(id);
 	}
 
+	public ArrayList<MemberDTO> searchMember(String kind, String search) {
+		return dao.searchMember(kind,search);
+	}
+
 	
 }
 

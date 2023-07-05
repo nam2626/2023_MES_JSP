@@ -142,6 +142,29 @@ public class MemberDAO {
 		
 	}
 
+	public ArrayList<MemberDTO> searchMember(String kind, String search) {
+		ArrayList<MemberDTO> list = new ArrayList<MemberDTO>();
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		String sql = "select * from member";
+		
+		try {
+			pstmt = manager.getConn().prepareStatement(sql);
+			rs = pstmt.executeQuery();
+			
+			while(rs.next()) {
+				list.add( new MemberDTO(rs.getString(1), null, rs.getString(3), 
+						rs.getInt(4), rs.getString(5).charAt(0)));
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally {
+			manager.close(rs, pstmt);
+		}
+		
+		return list;
+	}
+
 	
 	
 	
