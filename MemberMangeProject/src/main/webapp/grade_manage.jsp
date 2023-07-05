@@ -52,11 +52,12 @@
 			data : data,
 			type : 'post',
 			dataType : 'json',
-			success : function(r){
+			success : (r)=>{
 				if(r.result == 1){
-					alert('데이터 수정 완료');
+					alert('데이터 삭제 완료');
+					$(this).parent().remove();
 				}else{
-					alert('데이터 수정 실패');
+					alert('데이터 삭제 실패');
 				}
 			}
 		});
