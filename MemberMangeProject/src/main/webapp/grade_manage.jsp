@@ -44,8 +44,26 @@
 			}
 		});
 	}
+	function grade_delete(){
+		let data = 'grade_no='$(this).siblings('.grade_no').val();
+				
+		$.ajax({
+			url : 'grade/delete',
+			data : data,
+			type : 'post',
+			dataType : 'json',
+			success : function(r){
+				if(r.result == 1){
+					alert('데이터 수정 완료');
+				}else{
+					alert('데이터 수정 실패');
+				}
+			}
+		});
+	}
 	$(function(){
 		$('.btn_update').click(grade_update);
+		$('.btn_delete').click(grade_delete);
 		$("#register_grade").submit(function (e) {
 			e.preventDefault();
 			
