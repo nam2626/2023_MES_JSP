@@ -40,6 +40,14 @@
 			</p>
 			<div class="content">
 				<!-- 회원 등급 목록 -->
+				<c:forEach var="g" items="${list }">
+					<p>
+						<input type="text" class='grade_no' value='${g.gradeNo }' readonly>
+						<input type="text" class='grade_name' value='${g.gradeName }'>
+						<button class='btn_update'>수정</button>
+						<button class='btn_delete'>삭제</button>
+					</p>
+				</c:forEach>
 			</div>
 		</div>
 		<div class="register_container">	
