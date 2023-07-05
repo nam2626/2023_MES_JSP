@@ -21,6 +21,19 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
 <script>
 	$(function(){
+		$('.btn_search').click(function(){
+			let data = $('form').serialize();
+			$.ajax({
+				url: 'search',
+				data : data,
+				type : 'post',
+				dataType: 'json',
+				success:function(r){
+					console.log(r);
+				}
+					
+			});
+		});
 		$('.btn_delete').click(function(){
 			//alert($(this).parent().parent().children().first().text());
 			let data = `id=\${$(this).parent().parent().children().first().text()}`;
@@ -66,8 +79,8 @@
 						 	<option value="gender">성별</option>
 						 </select>
 						 <input type="text" name="search" placeholder="검색어 입력하세요">
-						 <button type="button">검색</button>
-						 <button type="button">검색 초기화</button>
+						 <button type="button" class="btn_search">검색</button>
+						 <button type="button" class="btn_reset">검색 초기화</button>
 					 </form>
 				</td>
 			</tr>
