@@ -56,6 +56,10 @@ public class MemberService {
 		return dao.selectAllGrade();
 	}
 
+	public int insertGrade(GradeDTO gradeDTO) {
+		return dao.insertGrade(gradeDTO);
+	}
+
 	
 }
 
