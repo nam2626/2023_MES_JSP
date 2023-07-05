@@ -263,4 +263,29 @@ public class MemberDAO {
 		return result;
 	}
 
+	public ArrayList<GradeDTO> selectGrade(String gradeName) {
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+
+		ArrayList<GradeDTO> list = new ArrayList<GradeDTO>();
+		String sql = "select * from board_member_grade "
+				+ "where grade_name like '%' || ? || '%' order by grade_no";
+
+		try {
+			pstmt = manager.getConn().prepareStatement(sql);
+			pstmt.setString(1, gradeName);
+			rs = pstmt.executeQuery();
+
+			while (rs.next()) {
+				list.add(new GradeDTO(rs.getInt(1), rs.getString(2)));
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			manager.close(rs, pstmt);
+		}
+
+		return list;
+	}
+
 }

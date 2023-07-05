@@ -68,6 +68,10 @@ public class MemberService {
 		return dao.deleteGrade(gradeNo);
 	}
 
+	public ArrayList<GradeDTO> selectGrade(String gradeName) {
+		return dao.selectGrade(gradeName);
+	}
+
 	
 }
 

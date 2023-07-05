@@ -96,6 +96,30 @@
 				}
 			});
 		});
+		$('#search').keyup(function() {
+			let data = 'grade_name='+$('#search').val();
+			
+			$.ajax({
+				url : 'grade/search',
+				data : data,
+				type : 'post',
+				dataType : 'json',
+				success : function(r){
+					let tag = '';
+					for(let i=0;i<r.list.length;i++){
+						tag += `<p>`;
+						tag += `<input type='text' class='grade_no' value='\${r.list[i].gradeNo }' readonly>`;
+						tag += `<input type='text' class='grade_name' value='\${r.list[i].gradeName }'>`;
+						tag += `<button class='btn_update'>수정</button>`;
+						tag += `<button class='btn_delete'>삭제</button>`;
+						tag += `</p>`;
+					}
+					$('.content').html(tag);
+					$('.btn_update').click(grade_update);	
+					$('.btn_delete').click(grade_delete);	
+				}
+			});
+		});
 	});
 </script>
 </head>
@@ -108,7 +132,6 @@
 			<hr>
 			<p>
 				<input type="text" id="search" placeholder="검색할 등급명 일부">
-				<button type="button">검색</button>
 			</p>
 			<div class="content">
 				<!-- 회원 등급 목록 -->
