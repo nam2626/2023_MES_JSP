@@ -45,7 +45,7 @@
 		});
 	}
 	function grade_delete(){
-		let data = 'grade_no='$(this).siblings('.grade_no').val();
+		let data = 'grade_no='+$(this).siblings('.grade_no').val();
 				
 		$.ajax({
 			url : 'grade/delete',
