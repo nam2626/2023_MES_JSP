@@ -22,6 +22,28 @@ td, th {
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
 <script>
+	function delete_member(){
+		//alert($(this).parent().parent().children().first().text());
+		let data = `id=\${$(this).parent().parent().children().first().text()}`;
+		console.log(data);
+		$.ajax({
+			url : 'delete',
+			data : data,
+			type : 'post',
+			success:(r)=>{
+				console.log(typeof r, typeof "0");
+				
+				if(Number(r) == 0){
+					alert('데이터 삭제 실패');
+					location.reload();
+				}else{
+					alert('데이터 삭제 성공');
+					console.log($(this).parent().parent());
+					$(this).parent().parent().remove();
+				}				
+			}
+		});
+	}
 	$(function(){
 		$('.btn_search').click(function(){
 			let data = $('form').serialize();
@@ -43,33 +65,16 @@ td, th {
 						tag += `</tr>`;
 					}
 					$('tbody').html(tag);
-					
+					//이벤트처리도 추가
+					$('.btn_delete').click(delete_member);
 				}
 					
 			});
 		});
-		$('.btn_delete').click(function(){
-			//alert($(this).parent().parent().children().first().text());
-			let data = `id=\${$(this).parent().parent().children().first().text()}`;
-			console.log(data);
-			$.ajax({
-				url : 'delete',
-				data : data,
-				type : 'post',
-				success:(r)=>{
-					console.log(typeof r, typeof "0");
-					
-					if(Number(r) == 0){
-						alert('데이터 삭제 실패');
-						location.reload();
-					}else{
-						alert('데이터 삭제 성공');
-						console.log($(this).parent().parent());
-						$(this).parent().parent().remove();
-					}				
-				}
-			});
-		});
+		$('.btn_delete').click(delete_member);
+		
+		//검색 결과 초기화
+		
 	});
 </script>
 </head>
