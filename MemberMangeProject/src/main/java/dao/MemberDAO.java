@@ -146,10 +146,23 @@ public class MemberDAO {
 		ArrayList<MemberDTO> list = new ArrayList<MemberDTO>();
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
-		String sql = "select * from member";
+		
+		String sql = "select * from member where ";
+		switch(kind) {
+		case "id":
+			sql += "member_id like '%' || ? || '%'";
+			break;
+		case "name":
+			sql += "member_name like '%' || ? || '%'";
+			break;
+		default:
+			sql += "member_gender like ?";
+			break;			
+		}
 		
 		try {
 			pstmt = manager.getConn().prepareStatement(sql);
+			pstmt.setString(1, search);
 			rs = pstmt.executeQuery();
 			
 			while(rs.next()) {
