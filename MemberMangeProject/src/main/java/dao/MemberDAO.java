@@ -220,4 +220,26 @@ public class MemberDAO {
 		return result;
 	}
 
+	public int updateGrade(GradeDTO gradeDTO) {
+		int result = 0;
+
+		PreparedStatement pstmt = null;
+		String sql = "update board_member_grade set grade_name = ? where grade_no = ?";
+
+		try {
+			pstmt = manager.getConn().prepareStatement(sql);
+			pstmt.setString(1, gradeDTO.getGradeName());
+			pstmt.setInt(2, gradeDTO.getGradeNo());
+
+			result = pstmt.executeUpdate();
+
+		} catch (SQLException e) {
+  			e.printStackTrace();
+		} finally {
+			manager.close(null, pstmt);
+		}
+
+		return result;
+	}
+
 }

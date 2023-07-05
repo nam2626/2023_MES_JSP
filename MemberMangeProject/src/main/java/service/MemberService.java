@@ -60,6 +60,10 @@ public class MemberService {
 		return dao.insertGrade(gradeDTO);
 	}
 
+	public int updateGrade(GradeDTO gradeDTO) {
+		return dao.updateGrade(gradeDTO);
+	}
+
 	
 }
 

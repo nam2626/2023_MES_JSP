@@ -26,8 +26,8 @@
 <script>
 	function grade_update(){
 		let data = '';
-		$(this).sibilings('input').each(function(i,obj){
-			data += `${$(obj).attr('class')}=${$(obj).val()}&`;
+		$(this).siblings('input').each(function(i,obj){
+			data += `\${$(obj).attr('class')}=\${$(obj).val()}&`;
 		});
 		
 		$.ajax({
