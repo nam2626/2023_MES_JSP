@@ -24,7 +24,24 @@
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
 <script>
-	
+	$(function(){
+		$("#register_grade").submit(function (e) {
+			e.preventDefault();
+			
+			let data = $(this).serialize();
+			
+			$.ajax({
+				url : 'grade/append',
+				data : data,
+				type : 'post',
+				dataType : 'json',
+				success : function(r){
+					console.log(r);
+					//결과를 태그에 변경
+				}
+			});
+		});
+	});
 </script>
 </head>
 <body>
@@ -56,7 +73,7 @@
 			<form id="register_grade">
 				<input type="text" name="grade_no" placeholder="등급번호">
 				<input type="text" name="grade_name" placeholder="등급명">
-				<button type="button">등급 추가</button>
+				<button>등급 추가</button>
 			</form>
 		</div>
 	</div>	
