@@ -64,6 +64,10 @@ public class MemberService {
 		return dao.updateGrade(gradeDTO);
 	}
 
+	public int deleteGrade(int gradeNo) {
+		return dao.deleteGrade(gradeNo);
+	}
+
 	
 }
 

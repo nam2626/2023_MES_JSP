@@ -242,4 +242,25 @@ public class MemberDAO {
 		return result;
 	}
 
+	public int deleteGrade(int gradeNo) {
+		int result = 0;
+
+		PreparedStatement pstmt = null;
+		String sql = "delete from board_member_grade where grade_no = ?";
+
+		try {
+			pstmt = manager.getConn().prepareStatement(sql);
+			pstmt.setInt(1, gradeNo);
+
+			result = pstmt.executeUpdate();
+
+		} catch (SQLException e) {
+  			e.printStackTrace();
+		} finally {
+			manager.close(null, pstmt);
+		}
+
+		return result;
+	}
+
 }
