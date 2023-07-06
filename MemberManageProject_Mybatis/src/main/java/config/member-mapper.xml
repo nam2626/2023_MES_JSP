@@ -15,6 +15,10 @@
 		<result column="grade_name" property="gradeName"/>		
 	</resultMap>
   	
+  	<insert id="insertMember" parameterType="dto.MemberDTO">
+  		insert into member values(#{memberId},#{passwd},#{name},#{age},#{gender})
+  	</insert>
+  	
   	<select id="login" parameterType="Map" resultMap="member">
   		select * from member where member_id like #{id} and member_passwd like #{passwd}
   	</select>

@@ -44,6 +44,10 @@ public class MemberMapper {
 		return manager.getSession().selectList("searchMember", map);
 	}
 
+	public int insertMember(MemberDTO dto) {
+		return manager.getSession().insert("insertMember", dto);
+	}
+
 	
 	
 	

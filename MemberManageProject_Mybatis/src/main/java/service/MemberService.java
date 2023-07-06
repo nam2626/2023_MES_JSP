@@ -43,7 +43,7 @@ public class MemberService {
 	}
 
 	public void insertMember(MemberDTO dto) throws SQLException {
-		dao.insertMember(dto);
+		mapper.insertMember(dto);
 	}
  
 	public MemberDTO selectMember(String id) {
