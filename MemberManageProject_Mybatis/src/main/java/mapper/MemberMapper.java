@@ -28,6 +28,10 @@ public class MemberMapper {
 		return manager.getSession().selectList("selectAllMember");
 	}
 
+	public int deleteMember(String id) {
+		return manager.getSession().delete("deleteMember",id);
+	}
+
 	
 	
 	

@@ -55,7 +55,7 @@ public class MemberService {
 	}
 
 	public int deleteMember(String id) {
-		return dao.deleteMember(id);
+		return mapper.deleteMember(id);
 	}
 
 	public ArrayList<MemberDTO> searchMember(String kind, String search) {
