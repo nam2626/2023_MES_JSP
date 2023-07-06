@@ -2,10 +2,13 @@ package service;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 import dao.MemberDAO;
 import dto.GradeDTO;
 import dto.MemberDTO;
+import mapper.MemberMapper;
 
 //싱글톤 패턴 적용
 //MemberDAO도 필드로 적용
@@ -13,9 +16,12 @@ public class MemberService {
 	private static MemberService instance = new MemberService();
 	
 	private MemberDAO dao;
+	private MemberMapper mapper;
+	
 	
 	private MemberService() {
 		dao = MemberDAO.getInstance();
+		mapper = MemberMapper.getInstance();
 	}
 
 	public static MemberService getInstance() {
@@ -25,7 +31,10 @@ public class MemberService {
 	}
 
 	public MemberDTO login(String id, String passwd) {
-		return dao.login(id,passwd);
+		Map<String, Object> map = new HashMap<String,Object>();
+		map.put("id", id);
+		map.put("passwd", passwd);
+		return mapper.login(map);
 	}
 
 	public ArrayList<MemberDTO> selectAllMember() {
