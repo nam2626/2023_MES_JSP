@@ -27,6 +27,18 @@
   		select * from member where member_id like #{id}
   	</select>
   	
+  	<select id="searchMember" parameterType="Map" resultMap="member">
+  		select * from member
+  		<choose>
+  			<when test="search == null"></when>
+  			<when test="kind.equals('member_gender')">
+  				where ${kind} like #{search}
+  			</when>
+  			<otherwise>
+  				where ${kind} like '%' || #{search} || '%'
+  			</otherwise>
+  		</choose>
+  	</select>
   	
   	<delete id="deleteMember" parameterType="String">
   		delete from member where member_id like #{value}
