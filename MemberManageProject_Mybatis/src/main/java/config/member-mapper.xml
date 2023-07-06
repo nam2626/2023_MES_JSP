@@ -65,7 +65,7 @@
   	</select>
   	
   	<insert id="insertGrade" parameterType="dto.GradeDTO">
-  		insert into board_member_grade value(#{gradeNo},#{gradeName})
+  		insert into board_member_grade values(#{gradeNo},#{gradeName})
   	</insert>
   	
   	<update id="updateGrade" parameterType="dto.GradeDTO">
