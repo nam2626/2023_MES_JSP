@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Map;
 
 import config.DBManager;
+import dto.GradeDTO;
 import dto.MemberDTO;
 
 public class MemberMapper {
@@ -46,6 +47,26 @@ public class MemberMapper {
 
 	public int insertMember(MemberDTO dto) {
 		return manager.getSession().insert("insertMember", dto);
+	}
+
+	public List<GradeDTO> selectAllGrade() {
+		return manager.getSession().selectList("selectAllGrade");
+	}
+
+	public List<GradeDTO> selectGrade(String gradeName) {
+		return manager.getSession().selectList("selectGrade", gradeName);
+	}
+
+	public int insertGrade(GradeDTO gradeDTO) {
+		return manager.getSession().insert("insertGrade", gradeDTO);
+	}
+
+	public int updateGrade(GradeDTO gradeDTO) {
+		return manager.getSession().update("updateGrade", gradeDTO);
+	}
+
+	public int deleteGrade(int gradeNo) {
+		return manager.getSession().delete("deleteGrade", gradeNo);
 	}
 
 	

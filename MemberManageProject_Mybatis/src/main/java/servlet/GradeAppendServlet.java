@@ -1,7 +1,7 @@
 package servlet;
 
 import java.io.IOException;
-import java.util.ArrayList;
+import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -38,7 +38,7 @@ public class GradeAppendServlet extends HttpServlet {
 		String gradeName = request.getParameter("grade_name");
 		
 		int result = MemberService.getInstance().insertGrade(new GradeDTO(gradeNo,gradeName));
-		ArrayList<GradeDTO> list = MemberService.getInstance().selectAllGrade();
+		List<GradeDTO> list = MemberService.getInstance().selectAllGrade();
 		
 		JSONObject json = new JSONObject();
 		if(result == 1) {

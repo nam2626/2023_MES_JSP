@@ -54,6 +54,28 @@
   		where member_id like #{memberId}
   	</update>
   	
+  	<select id="selectAllGrade" resultMap="grade">
+  		select * from board_member_grade order by grade_no
+  	</select>
+  	
+  	<select id="selectGrade" parameterType="String" resultMap="grade">
+  		select * from board_member_grade 
+  		where grade_name like '%' || #{search} || '%'
+  		order by grade_no
+  	</select>
+  	
+  	<insert id="insertGrade" parameterType="dto.GradeDTO">
+  		insert into board_member_grade value(#{gradeNo},#{gradeName})
+  	</insert>
+  	
+  	<update id="updateGrade" parameterType="dto.GradeDTO">
+  		update board_member_grade set grade_name = #{gradeName}
+  		where grade_no = #{gradeNo}
+  	</update>
+  	
+  	<delete id="deleteGrade" parameterType="int">
+  		delete from board_member_grade where grade_no = #{gradeNo}
+  	</delete>
 </mapper>
 
 

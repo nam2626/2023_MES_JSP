@@ -1,12 +1,10 @@
 package service;
 
 import java.sql.SQLException;
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import dao.MemberDAO;
 import dto.GradeDTO;
 import dto.MemberDTO;
 import mapper.MemberMapper;
@@ -16,12 +14,9 @@ import mapper.MemberMapper;
 public class MemberService {
 	private static MemberService instance = new MemberService();
 	
-	private MemberDAO dao;
 	private MemberMapper mapper;
 	
-	
 	private MemberService() {
-		dao = MemberDAO.getInstance();
 		mapper = MemberMapper.getInstance();
 	}
 
@@ -65,24 +60,24 @@ public class MemberService {
 		return mapper.searchMember(map);
 	}
 
-	public ArrayList<GradeDTO> selectAllGrade() {
-		return dao.selectAllGrade();
+	public List<GradeDTO> selectAllGrade() {
+		return mapper.selectAllGrade();
 	}
 
 	public int insertGrade(GradeDTO gradeDTO) {
-		return dao.insertGrade(gradeDTO);
+		return mapper.insertGrade(gradeDTO);
 	}
 
 	public int updateGrade(GradeDTO gradeDTO) {
-		return dao.updateGrade(gradeDTO);
+		return mapper.updateGrade(gradeDTO);
 	}
 
 	public int deleteGrade(int gradeNo) {
-		return dao.deleteGrade(gradeNo);
+		return mapper.deleteGrade(gradeNo);
 	}
 
-	public ArrayList<GradeDTO> selectGrade(String gradeName) {
-		return dao.selectGrade(gradeName);
+	public List<GradeDTO> selectGrade(String gradeName) {
+		return mapper.selectGrade(gradeName);
 	}
 
 	

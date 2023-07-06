@@ -1,7 +1,7 @@
 package servlet;
 
 import java.io.IOException;
-import java.util.ArrayList;
+import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -31,7 +31,7 @@ public class GradeMainServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		ArrayList<GradeDTO> list = MemberService.getInstance().selectAllGrade();
+		List<GradeDTO> list = MemberService.getInstance().selectAllGrade();
 		
 		request.setAttribute("list", list);
 		request.getRequestDispatcher("grade_manage.jsp").forward(request, response);
