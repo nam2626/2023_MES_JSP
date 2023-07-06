@@ -14,12 +14,20 @@
   <select id="login" parameterType="Map" resultMap="member">
   	select * from member where member_id like #{id} and member_passwd like #{passwd}
   </select>
+  <select id="test_login" parameterType="Map" resultType="Map">
+  	select * from member where member_id like #{id} and member_passwd like #{passwd}
+  </select>
   <select id="selectAllMember" resultMap="member">
   	select * from member
   </select>
   <insert id="insertMember" parameterType="dto.MemberDTO">
   	insert into member values(#{memberId},#{passwd},#{name},#{age},#{gender})
   </insert>
+  <select id="selectAgeMember" parameterType="int" resultMap="member">
+  	<![CDATA[
+  	select * from member where member_age < #{value}
+  	]]>
+  </select>
 </mapper>
 
 

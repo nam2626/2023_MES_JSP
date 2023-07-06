@@ -31,6 +31,14 @@ public class MemberMapper {
 	public int insertMember(MemberDTO dto) {
 		return manager.getSession().insert("insertMember", dto);
 	}
+
+	public List<MemberDTO> selectAgeMember(int age) {
+		return manager.getSession().selectList("selectAgeMember", age);
+	}
+
+	public Map<String,Object> loginTest(Map<String, Object> param) {
+		return manager.getSession().selectOne("test_login", param);
+	}
 	
 }
 
