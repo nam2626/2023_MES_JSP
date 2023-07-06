@@ -1,9 +1,11 @@
 package dao;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 import config.DBManager;
+import dto.MemberDTO;
 
 public class MemberMapper {
 	private static MemberMapper instance = new  MemberMapper();
@@ -18,11 +20,11 @@ public class MemberMapper {
 		return instance;
 	}
 	
-	public Map<String,Object> login(Map<String,Object> map){
+	public MemberDTO login(Map<String,Object> map){
 		return manager.getSession().selectOne("login", map);
 	}
 
-	public List<Map<String,Object>> selectAllMember() {
+	public List<MemberDTO> selectAllMember() {
 		return manager.getSession().selectList("selectAllMember");
 	}
 	

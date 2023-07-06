@@ -3,10 +3,27 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="dao.MemberMapper">
-  <select id="login" parameterType="Map" resultType="Map">
+	<resultMap type="dto.MemberDTO" id="member">
+		<!-- column="조회된 결과의 컬럼명" property="클래스의 필드명" -->	
+		<id column="member_id" property="memberId"/>
+		<result column="member_passwd" property="passwd"/>
+		<result column="member_name" property="name"/>
+		<result column="member_age" property="age"/>
+		<result column="member_gender" property="gender"/>
+	</resultMap>
+  <select id="login" parameterType="Map" resultMap="member">
   	select * from member where member_id like #{id} and member_passwd like #{passwd}
   </select>
-  <select id="selectAllMember" resultType="Map">
+  <select id="selectAllMember" resultMap="member">
   	select * from member
   </select>
+  <insert id="insertMember" parameterType="dto.MemberDTO">
+  	insert into member values(#{memberId},#{passwd},#{name},#{age},#{gender})
+  </insert>
 </mapper>
+
+
+
+
+
+
