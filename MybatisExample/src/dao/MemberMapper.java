@@ -1,5 +1,6 @@
 package dao;
 
+import java.util.List;
 import java.util.Map;
 
 import config.DBManager;
@@ -17,8 +18,12 @@ public class MemberMapper {
 		return instance;
 	}
 	
-	public Map<Object,Object> login(Map<String,Object> map){
+	public Map<String,Object> login(Map<String,Object> map){
 		return manager.getSession().selectOne("login", map);
+	}
+
+	public List<Map<String,Object>> selectAllMember() {
+		return manager.getSession().selectList("selectAllMember");
 	}
 	
 }
