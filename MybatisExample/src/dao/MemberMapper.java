@@ -27,6 +27,10 @@ public class MemberMapper {
 	public List<MemberDTO> selectAllMember() {
 		return manager.getSession().selectList("selectAllMember");
 	}
+
+	public int insertMember(MemberDTO dto) {
+		return manager.getSession().insert("insertMember", dto);
+	}
 	
 }
 
