@@ -95,9 +95,9 @@ td, th {
 					 -->
 					<form>
 						<select name="kind">
-							<option value="id">아이디</option>
-							<option value="name">이름</option>
-							<option value="gender">성별</option>
+							<option value="member_id">아이디</option>
+							<option value="member_name">이름</option>
+							<option value="member_gender">성별</option>
 						</select> <input type="text" name="search" placeholder="검색어 입력하세요">
 						<button type="button" class="btn_search">검색</button>
 						<button type="button" class="btn_reset">검색 초기화</button>

@@ -1,7 +1,7 @@
 package servlet;
 
 import java.io.IOException;
-import java.util.ArrayList;
+import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -36,7 +36,7 @@ public class SearchServlet extends HttpServlet {
 		String kind = request.getParameter("kind");
 		String search = request.getParameter("search");
 		
-		ArrayList<MemberDTO> list = MemberService.getInstance().searchMember(kind, search);
+		List<MemberDTO> list = MemberService.getInstance().searchMember(kind, search);
 		 
 		JSONArray json = new JSONArray(list);
 		

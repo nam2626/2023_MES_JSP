@@ -40,6 +40,10 @@ public class MemberMapper {
 		return manager.getSession().selectOne("selectMember", id);
 	}
 
+	public List<MemberDTO> searchMember(Map<String, Object> map) {
+		return manager.getSession().selectList("searchMember", map);
+	}
+
 	
 	
 	
