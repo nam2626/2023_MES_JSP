@@ -1,5 +1,6 @@
 package mapper;
 
+import java.util.List;
 import java.util.Map;
 
 import config.DBManager;
@@ -21,6 +22,10 @@ public class MemberMapper {
 
 	public MemberDTO login(Map<String, Object> map) {
 		return manager.getSession().selectOne("login", map);
+	}
+
+	public List<MemberDTO> selectAllMember() {
+		return manager.getSession().selectList("selectAllMember");
 	}
 
 	

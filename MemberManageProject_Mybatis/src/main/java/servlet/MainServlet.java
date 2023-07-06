@@ -1,7 +1,7 @@
 package servlet;
 
 import java.io.IOException;
-import java.util.ArrayList;
+import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -33,7 +33,7 @@ public class MainServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		//1. 전체 회원 정보를 DB에서 조회해서 가져옴
 		//     - ArrayList로 받음
-		ArrayList<MemberDTO> list = MemberService.getInstance().selectAllMember();
+		List<MemberDTO> list = MemberService.getInstance().selectAllMember();
 		//2. request 영역에 읽어온 전체회원 정보를 저장
 		request.setAttribute("list", list);
 		request.getRequestDispatcher("main.jsp").forward(request, response);

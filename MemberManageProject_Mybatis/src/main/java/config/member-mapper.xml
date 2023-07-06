@@ -14,10 +14,13 @@
 		<id column="grade_no" property="gradeNo"/>
 		<result column="grade_name" property="gradeName"/>		
 	</resultMap>
-  
-  
+  	
   	<select id="login" parameterType="Map" resultMap="member">
   		select * from member where member_id like #{id} and member_passwd like #{passwd}
+  	</select>
+  	
+  	<select id="selectAllMember" resultMap="member">
+  		select * from member
   	</select>
 </mapper>
 

@@ -3,6 +3,7 @@ package service;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import dao.MemberDAO;
@@ -37,8 +38,8 @@ public class MemberService {
 		return mapper.login(map);
 	}
 
-	public ArrayList<MemberDTO> selectAllMember() {
-		return dao.selectAllMember();
+	public List<MemberDTO> selectAllMember() {
+		return mapper.selectAllMember(); 
 	}
 
 	public void insertMember(MemberDTO dto) throws SQLException {
