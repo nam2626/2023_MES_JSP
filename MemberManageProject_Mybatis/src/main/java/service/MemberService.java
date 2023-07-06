@@ -47,7 +47,7 @@ public class MemberService {
 	}
 
 	public MemberDTO selectMember(String id) {
-		return dao.selectMember(id);
+		return mapper.selectMember(id);
 	}
 
 	public int updateMember(MemberDTO dto) throws SQLException{

@@ -36,6 +36,10 @@ public class MemberMapper {
 		return manager.getSession().update("updateMember", dto);
 	}
 
+	public MemberDTO selectMember(String id) {
+		return manager.getSession().selectOne("selectMember", id);
+	}
+
 	
 	
 	
