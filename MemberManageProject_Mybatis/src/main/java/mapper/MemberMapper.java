@@ -32,6 +32,10 @@ public class MemberMapper {
 		return manager.getSession().delete("deleteMember",id);
 	}
 
+	public int updateMember(MemberDTO dto) {
+		return manager.getSession().update("updateMember", dto);
+	}
+
 	
 	
 	

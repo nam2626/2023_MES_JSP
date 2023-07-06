@@ -26,6 +26,13 @@
   	<delete id="deleteMember" parameterType="String">
   		delete from member where member_id like #{value}
   	</delete>
+  	
+  	<update id="updateMember" parameterType="dto.MemberDTO">
+  		update member set member_passwd = #{passwd}, member_name = #{name},
+  			member_age = #{age}, member_gender = #{gender}
+  		where member_id like #{memberId}
+  	</update>
+  	
 </mapper>
 
 

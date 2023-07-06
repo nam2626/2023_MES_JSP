@@ -51,7 +51,7 @@ public class MemberService {
 	}
 
 	public int updateMember(MemberDTO dto) throws SQLException{
-		return dao.updateMember(dto);
+		return mapper.updateMember(dto);
 	}
 
 	public int deleteMember(String id) {
