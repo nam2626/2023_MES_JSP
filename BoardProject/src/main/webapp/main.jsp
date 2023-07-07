@@ -13,7 +13,7 @@
 		margin:0 auto;
 	}
 	section table{
-		width: 90%;
+		width: 95%;
 		border-collapse: collapse;
 	}
 	section table td,section table th{
@@ -58,7 +58,7 @@
 					<tr>
 						<th>글번호</th>
 						<th>제목</th>
-						<th>직네임</th>
+						<th>닉네임</th>
 						<th>작성일</th>
 						<th>조회수</th>
 						<th>좋아요</th>
@@ -67,6 +67,17 @@
 				</thead>
 				<tbody>
 				<!-- 게시글 목록  -->
+				<c:forEach items="${list }" var="b">
+					<tr>
+						<td>${b.bno }</td>
+						<td>${b.title }</td>
+						<td>${b.writer }</td>
+						<td>${b.bdate }</td>
+						<td>${b.bcount }</td>
+						<td>${b.blike }</td>
+						<td>${b.bhate}</td>
+					</tr>
+				</c:forEach>
 				</tbody>
 				<tfoot>
 					<tr>
