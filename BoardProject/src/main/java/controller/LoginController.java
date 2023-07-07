@@ -28,7 +28,7 @@ public class LoginController implements Controller {
 			response.getWriter().append("history.back();");
 			response.getWriter().append("</script>");
 		}else {
-			view = new ModelAndView("main.jsp", false);
+			view = new ModelAndView(request.getContextPath()+"/main.do", true);
 			request.getSession().setAttribute("user", dto);
 		}
 		

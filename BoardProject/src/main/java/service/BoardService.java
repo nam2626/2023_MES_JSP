@@ -1,5 +1,8 @@
 package service;
 
+import java.util.List;
+
+import dto.BoardDTO;
 import mapper.BoardMapper;
 
 public class BoardService {
@@ -16,5 +19,16 @@ public class BoardService {
 		return instance;
 	}
 
+	public List<BoardDTO> selectAllBoard() {
+		return mapper.selectAllBoard();
+	}
+
 	
 }
+
+
+
+
+
+
+

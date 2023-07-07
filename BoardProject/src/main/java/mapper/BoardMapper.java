@@ -1,6 +1,9 @@
 package mapper;
 
+import java.util.List;
+
 import config.DBManager;
+import dto.BoardDTO;
 
 public class BoardMapper {
 	private static BoardMapper instance = new BoardMapper();
@@ -16,5 +19,20 @@ public class BoardMapper {
 		return instance;
 	}
 
+	public List<BoardDTO> selectAllBoard() {
+		return manager.getSession().selectList("selectAllBoard");
+	}
+
 	
 }
+
+
+
+
+
+
+
+
+
+
+
