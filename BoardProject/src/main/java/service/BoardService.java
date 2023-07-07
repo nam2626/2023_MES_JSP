@@ -23,6 +23,10 @@ public class BoardService {
 		return mapper.selectAllBoard();
 	}
 
+	public BoardDTO selectBoard(int bno) {
+		return mapper.selectBoard(bno);
+	}
+
 	
 }
 

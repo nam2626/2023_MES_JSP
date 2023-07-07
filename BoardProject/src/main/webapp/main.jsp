@@ -70,7 +70,7 @@
 				<c:forEach items="${list }" var="b">
 					<tr>
 						<td>${b.bno }</td>
-						<td>${b.title }</td>
+						<td><a href="boardView.do?bno=${b.bno }">${b.title }</a></td>
 						<td>${b.writer }</td>
 						<td>${b.bdate }</td>
 						<td>${b.bcount }</td>

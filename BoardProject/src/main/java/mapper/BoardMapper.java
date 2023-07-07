@@ -23,6 +23,10 @@ public class BoardMapper {
 		return manager.getSession().selectList("selectAllBoard");
 	}
 
+	public BoardDTO selectBoard(int bno) {
+		return manager.getSession().selectOne("selectBoard",bno);
+	}
+
 	
 }
 

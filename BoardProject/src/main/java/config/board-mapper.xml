@@ -9,6 +9,13 @@
 			(SELECT COUNT(*) FROM BOARD_HATE BH WHERE B.BNO = BH.BNO) AS BHATE
 		FROM BOARD B ORDER BY BNO DESC
 	</select>
+	<select id="selectBoard" resultType="dto.BoardDTO" parameterType="int">
+		SELECT B.*, 
+			(SELECT COUNT(*) FROM BOARD_LIKE BL WHERE B.BNO = BL.BNO) AS BLIKE,
+			(SELECT COUNT(*) FROM BOARD_HATE BH WHERE B.BNO = BH.BNO) AS BHATE
+		FROM BOARD B 
+		WHERE B.BNO = #{BNO}
+	</select>
 </mapper>
 
 
