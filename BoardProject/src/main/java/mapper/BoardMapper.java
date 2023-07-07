@@ -1,12 +1,13 @@
 package mapper;
 
+import config.DBManager;
 
 public class BoardMapper {
 	private static BoardMapper instance = new BoardMapper();
-	private BoardMapper manager;
+	private DBManager manager;
 	
 	private BoardMapper() {
-		manager = BoardMapper.getInstance();
+		manager = DBManager.getInstance();
 	}
 
 	public static BoardMapper getInstance() {
