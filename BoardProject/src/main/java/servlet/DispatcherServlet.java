@@ -7,6 +7,10 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import controller.Controller;
+import controller.HandlerMapping;
+import view.ModelAndView;
+
 /**
  * Servlet implementation class DispatcherServlet
  */
@@ -30,6 +34,24 @@ public class DispatcherServlet extends HttpServlet {
 		String arr[] = request.getRequestURI().split("/");
 		String command = arr[arr.length-1];
 		System.out.println(command);
+		
+		//작업할 컨트롤러 생성
+		Controller controller = HandlerMapping.getInstance().createController(command);
+		
+		ModelAndView view = null;//이동할 페이지 경로
+		
+		if(controller != null)
+			view = controller.execute(request, response);
+		
+		//ajax 처리 하는 부분이면 페이지 이동 X
+		if(view == null) return;
+		
+		//페이지 이동하는 부분
+		if(view.isRedirect())
+			response.sendRedirect(view.getPath());
+		else
+			request.getRequestDispatcher(view.getPath()).forward(request, response);
+		
 	}
 
 	/**
