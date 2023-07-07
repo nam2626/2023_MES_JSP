@@ -52,7 +52,29 @@
 </head>
 <body>
 		<jsp:include page="template/header.jsp"></jsp:include>
-			
+		<section>
+			<table>
+				<thead>
+					<tr>
+						<th>글번호</th>
+						<th>제목</th>
+						<th>직네임</th>
+						<th>작성일</th>
+						<th>조회수</th>
+						<th>좋아요</th>
+						<th>싫어요</th>
+					</tr>
+				</thead>
+				<tbody>
+				<!-- 게시글 목록  -->
+				</tbody>
+				<tfoot>
+					<tr>
+					<td colspan="7">
+					</td>
+					</tr>
+				</tfoot>
+			</table>		
 		</section>
 </body>
 </html>
