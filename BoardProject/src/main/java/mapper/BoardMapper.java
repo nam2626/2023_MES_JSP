@@ -31,6 +31,10 @@ public class BoardMapper {
 		return manager.getSession().delete("deleteBoard",bno);
 	}
 
+	public int updateBoard(BoardDTO dto) {
+		return manager.getSession().update("updateBoard", dto);
+	}
+
 	
 }
 

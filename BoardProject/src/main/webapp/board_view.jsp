@@ -12,6 +12,9 @@
 		$("#btn_delete").click(function(){
 			location.href = 'boardDelete.do?bno=${board.bno}';
 		});
+		$("#btn_update").click(function(){
+			location.href = 'boardUpdateView.do?bno=${board.bno}';
+		});
 	});
 </script>
 <style type="text/css">
