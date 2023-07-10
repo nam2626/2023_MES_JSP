@@ -15,7 +15,7 @@ public class BoardUpdateController implements Controller {
 	@Override
 	public ModelAndView execute(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		int bno = Integer.parseInt("bno");
+		int bno = Integer.parseInt(request.getParameter("bno"));
 		String title = request.getParameter("title");
 		String content = request.getParameter("content");
 		
