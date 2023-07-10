@@ -41,6 +41,13 @@
 	<select id="selectBoardHateCount" parameterType="int">
 		select count(*) from board_hate where bno = #{bno}
 	</select>
+	<insert id="insertBoardComment" parameterType="dto.CommentDTO">
+		insert into board_comment(cno,bno,writer,content) 
+		values(board_comment_seq.nextval,#{bno},#{writer},#{content})
+	</insert>
+	<select id="selectCommentList" parameterType="int" resultType="dto.CommentDTO">
+		select * from board_comment where bno = #{bno}
+	</select>
 	
 </mapper>
 

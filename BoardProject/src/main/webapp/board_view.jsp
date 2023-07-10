@@ -218,7 +218,21 @@
 			댓글 내용을 출력, 댓글 번호, 작성일, 좋아요, 싫어요, 작성자, 댓글 내용 
 			댓글 삭제 버튼
 		-->
-		
+		<c:forEach items="${comment }" var="c">
+			<div class="comment">
+				<p>
+					<input type="hidden" name="cno" value="${c.cno }">
+					<span>${c.writer }</span>
+					<span>작성일 : ${c.cdate }</span>
+					<span><a href="#" class="btn_comment_like">좋아요 : <span>0</span></a></span>
+					<span><a href="#" class="btn_comment_hate">싫어요 : <span>0</span></a></span>
+				</p>
+				<p>${c.content }</p>
+				<c:if test="${sessionScope.user.id == c.writer }">
+					<a href="boardCommentDelete.do?cno=${c.cno }&bno=${c.bno}">댓글 삭제</a>
+				</c:if>
+			</div>
+		</c:forEach>
 	</div>
 </body>
 </html>

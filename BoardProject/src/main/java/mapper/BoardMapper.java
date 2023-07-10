@@ -62,6 +62,10 @@ public class BoardMapper {
 		return manager.getSession().insert("insertBoardComment", commentDTO);
 	}
 
+	public List<CommentDTO> selectCommentList(int bno) {
+		return manager.getSession().selectList("selectCommentList", bno);
+	}
+
 	
 }
 
