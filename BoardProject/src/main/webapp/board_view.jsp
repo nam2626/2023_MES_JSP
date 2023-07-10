@@ -45,6 +45,40 @@
 				}
 			});
 		});
+		//댓글 좋아요
+		$(".btn_comment_like").click(function(){
+			//console.log($(this).parent().siblings('input').val());
+			let cno = $(this).parent().siblings('input').val();
+			
+			$.ajax({
+				url : 'commentLike.do',
+				data : 'cno='+cno,
+				type : 'post',
+				dataType : 'json',
+				success:function(r){
+					alert(r.msg);
+					//페이지 새로고침
+					location.reload();
+				}
+			});
+		});
+		//댓글 싫어요
+		$(".btn_comment_hate").click(function(){
+			//console.log($(this).parent().siblings('input').val());
+			let cno = $(this).parent().siblings('input').val();
+			
+			$.ajax({
+				url : 'commentHate.do',
+				data : 'cno='+cno,
+				type : 'post',
+				dataType : 'json',
+				success:function(r){
+					alert(r.msg);
+					//페이지 새로고침
+					location.reload();
+				}
+			});
+		});
 	});
 </script>
 <style type="text/css">

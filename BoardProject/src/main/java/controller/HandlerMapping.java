@@ -46,6 +46,9 @@ public class HandlerMapping {
 		case "commentWrite.do":
 			controller = new BoardCommentInsertController();
 			break;
+		case "commentLike.do":
+			controller = new BoardCommentLikeController();
+			break;
 		}
 		
 		return controller;
