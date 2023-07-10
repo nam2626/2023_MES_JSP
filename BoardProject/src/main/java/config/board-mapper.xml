@@ -23,6 +23,16 @@
 		update board set title = #{title}, content = #{content}
 		where bno = #{bno}
 	</update>
+	<insert id="insertBoardContentLike" parameterType="Map">
+		insert into board_like values(#{bno},#{id})
+	</insert>
+	<delete id="insertBoardContentLike" parameterType="Map">
+		delete from board_like where bno = #{bno} and id like #{id}
+	</delete>
+	<select id="selectBoardLikeCount" parameterType="int">
+		select count(*) from board_like where bno = #{bno}
+	</select>
+	
 </mapper>
 
 

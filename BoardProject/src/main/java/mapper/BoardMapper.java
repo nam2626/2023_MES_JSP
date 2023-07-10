@@ -1,6 +1,7 @@
 package mapper;
 
 import java.util.List;
+import java.util.Map;
 
 import config.DBManager;
 import dto.BoardDTO;
@@ -33,6 +34,13 @@ public class BoardMapper {
 
 	public int updateBoard(BoardDTO dto) {
 		return manager.getSession().update("updateBoard", dto);
+	}
+
+	public int insertBoardContentLike(Map<String, Object> map) {
+		return manager.getSession().insert("insertBoardContentLike", map);
+	}
+	public int deleteBoardContentLike(Map<String, Object> map) {
+		return manager.getSession().delete("deleteBoardContentLike", map);
 	}
 
 	

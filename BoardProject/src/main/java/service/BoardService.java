@@ -1,6 +1,8 @@
 package service;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import dto.BoardDTO;
 import mapper.BoardMapper;
@@ -33,6 +35,13 @@ public class BoardService {
 
 	public int updateBoard(BoardDTO dto) {
 		return mapper.updateBoard(dto);
+	}
+
+	public int insertBoardContentLike(int bno, String id) {
+		Map<String, Object> map = new HashMap<String,Object>();
+		map.put("id", id);
+		map.put("bno", bno);
+		return mapper.insertBoardContentLike(map);
 	}
 
 	
