@@ -32,6 +32,15 @@
 	<select id="selectBoardLikeCount" parameterType="int">
 		select count(*) from board_like where bno = #{bno}
 	</select>
+	<insert id="insertBoardContentHate" parameterType="Map">
+		insert into board_hate values(#{bno},#{id})
+	</insert>
+	<delete id="deleteBoardContentHate" parameterType="Map">
+		delete from board_hate where bno = #{bno} and id like #{id}
+	</delete>
+	<select id="selectBoardHateCount" parameterType="int">
+		select count(*) from board_hate where bno = #{bno}
+	</select>
 	
 </mapper>
 

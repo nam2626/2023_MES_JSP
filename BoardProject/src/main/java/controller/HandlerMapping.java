@@ -40,6 +40,9 @@ public class HandlerMapping {
 		case "boardContentLike.do":
 			controller = new BoardContentLikeController();
 			break;
+		case "boardContentHate.do":
+			controller = new BoardContentHateController();
+			break;
 		}
 		
 		return controller;

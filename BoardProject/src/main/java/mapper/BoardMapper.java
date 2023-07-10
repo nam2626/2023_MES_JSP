@@ -46,6 +46,16 @@ public class BoardMapper {
 	public int selectBoardLikeCount(int bno) {
 		return manager.getSession().selectOne("selectBoardLikeCount", bno);
 	}
+	public int insertBoardContentHate(Map<String, Object> map) {
+		return manager.getSession().insert("insertBoardContentHate", map);
+	}
+	public int deleteBoardContentHate(Map<String, Object> map) {
+		return manager.getSession().delete("deleteBoardContentHate", map);
+	}
+	
+	public int selectBoardHateCount(int bno) {
+		return manager.getSession().selectOne("selectBoardHateCount", bno);
+	}
 
 	
 }

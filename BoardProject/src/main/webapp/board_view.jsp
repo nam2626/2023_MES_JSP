@@ -30,6 +30,21 @@
 				}
 			});
 		});
+		$("#btn_hate").click(function(){
+			let data = 'bno=${board.bno}&id=${sessionScope.user.id}';
+			
+			$.ajax({
+				url : "boardContentHate.do",
+				data : data,
+				type : "post",
+				dataType : "json",
+				success:function(r){
+					//console.log(r);
+					alert(r.msg);
+					$("#hate_count").text(r.bhate);
+				}
+			});
+		});
 	});
 </script>
 <style type="text/css">
