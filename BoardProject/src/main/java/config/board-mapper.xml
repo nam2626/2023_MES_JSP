@@ -57,6 +57,12 @@
 	<delete id="deleteCommentLike" parameterType="Map">
 		delete from board_comment_like where cno = #{cno} and id like #{id}
 	</delete>
+	<insert id="insertCommentHate" parameterType="Map">
+		insert into board_comment_hate values(#{cno},#{id})
+	</insert>
+	<delete id="deleteCommentHate" parameterType="Map">
+		delete from board_comment_hate where cno = #{cno} and id like #{id}
+	</delete>
 	
 	
 </mapper>

@@ -72,6 +72,12 @@ public class BoardMapper {
 	public int deleteCommentLike(Map<String, Object> map) {
 		return manager.getSession().delete("deleteCommentLike", map);
 	}
+	public int insertCommentHate(Map<String, Object> map) {
+		return manager.getSession().insert("insertCommentHate", map);
+	}
+	public int deleteCommentHate(Map<String, Object> map) {
+		return manager.getSession().delete("deleteCommentHate", map);
+	}
 
 	
 }

@@ -99,6 +99,18 @@ public class BoardService {
 		map.put("cno", cno);
 		return mapper.deleteCommentLike(map);
 	}
+	public int insertCommentHate(String id, int cno) {
+		Map<String, Object> map = new HashMap<String, Object>();
+		map.put("id", id);
+		map.put("cno", cno);
+		return mapper.insertCommentHate(map);
+	}
+	public int deleteCommentHate(String id, int cno) {
+		Map<String, Object> map = new HashMap<String, Object>();
+		map.put("id", id);
+		map.put("cno", cno);
+		return mapper.deleteCommentHate(map);
+	}
 
 	
 }
