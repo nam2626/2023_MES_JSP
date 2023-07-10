@@ -15,6 +15,19 @@
 		$("#btn_update").click(function(){
 			location.href = 'boardUpdateView.do?bno=${board.bno}';
 		});
+		$("#btn_like").click(function(){
+			let data = 'bno=${board.bno}&id=${sessionScope.user.id}';
+			
+			$.ajax({
+				url : "boardContentLike.do",
+				data : data,
+				type : "post",
+				dataType : "json",
+				success:function(r){
+					console.log(r);
+				}
+			});
+		});
 	});
 </script>
 <style type="text/css">
