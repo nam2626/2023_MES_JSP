@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.Map;
 
 import dto.BoardDTO;
+import dto.CommentDTO;
 import mapper.BoardMapper;
 
 public class BoardService {
@@ -76,6 +77,10 @@ public class BoardService {
 
 	public int selectBoardHateCount(int bno) {
 		return mapper.selectBoardHateCount(bno);
+	}
+
+	public int insertBoardComment(int bno, String id, String comment) {
+		return mapper.insertBoardComment(new CommentDTO(bno, id, comment));
 	}
 
 	

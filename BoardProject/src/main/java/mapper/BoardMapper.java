@@ -5,6 +5,7 @@ import java.util.Map;
 
 import config.DBManager;
 import dto.BoardDTO;
+import dto.CommentDTO;
 
 public class BoardMapper {
 	private static BoardMapper instance = new BoardMapper();
@@ -55,6 +56,10 @@ public class BoardMapper {
 	
 	public int selectBoardHateCount(int bno) {
 		return manager.getSession().selectOne("selectBoardHateCount", bno);
+	}
+
+	public int insertBoardComment(CommentDTO commentDTO) {
+		return manager.getSession().insert("insertBoardComment", commentDTO);
 	}
 
 	
