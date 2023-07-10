@@ -1,5 +1,6 @@
 package service;
 
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -42,6 +43,19 @@ public class BoardService {
 		map.put("id", id);
 		map.put("bno", bno);
 		return mapper.insertBoardContentLike(map);
+	}
+
+	public int deleteBoardContentLike(int bno, String id) {
+		Map<String, Object> map = new HashMap<String,Object>();
+		map.put("id", id);
+		map.put("bno", bno);
+		
+		return mapper.deleteBoardContentLike(map);
+		
+	}
+
+	public int selectBoardLikeCount(int bno) {
+		return mapper.selectBoardLikeCount(bno);
 	}
 
 	

@@ -43,6 +43,10 @@ public class BoardMapper {
 		return manager.getSession().delete("deleteBoardContentLike", map);
 	}
 
+	public int selectBoardLikeCount(int bno) {
+		return manager.getSession().selectOne("selectBoardLikeCount", bno);
+	}
+
 	
 }
 
