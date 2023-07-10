@@ -87,6 +87,19 @@ public class BoardService {
 		return mapper.selectCommentList(bno);
 	}
 
+	public int insertCommentLike(String id, int cno) {
+		Map<String, Object> map = new HashMap<String, Object>();
+		map.put("id", id);
+		map.put("cno", cno);
+		return mapper.insertCommentLike(map);
+	}
+	public int deleteCommentLike(String id, int cno) {
+		Map<String, Object> map = new HashMap<String, Object>();
+		map.put("id", id);
+		map.put("cno", cno);
+		return mapper.deleteCommentLike(map);
+	}
+
 	
 }
 

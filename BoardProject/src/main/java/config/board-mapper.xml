@@ -46,8 +46,18 @@
 		values(board_comment_seq.nextval,#{bno},#{writer},#{content})
 	</insert>
 	<select id="selectCommentList" parameterType="int" resultType="dto.CommentDTO">
-		select * from board_comment where bno = #{bno}
+		select bc.*,
+			(select count(*) from board_comment_like bcl where bc.cno = bcl.cno) as clike,
+			(select count(*) from board_comment_hate bch where bc.cno = bch.cno) as chate
+		 from board_comment bc where bc.bno = #{bno}
 	</select>
+	<insert id="insertCommentLike" parameterType="Map">
+		insert into board_comment_like values(#{cno},#{id})
+	</insert>
+	<delete id="deleteCommentLike" parameterType="Map">
+		delete from board_comment_like where cno = #{cno} and id like #{id}
+	</delete>
+	
 	
 </mapper>
 

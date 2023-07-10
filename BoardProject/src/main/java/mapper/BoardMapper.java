@@ -66,6 +66,13 @@ public class BoardMapper {
 		return manager.getSession().selectList("selectCommentList", bno);
 	}
 
+	public int insertCommentLike(Map<String, Object> map) {
+		return manager.getSession().insert("insertCommentLike", map);
+	}
+	public int deleteCommentLike(Map<String, Object> map) {
+		return manager.getSession().delete("deleteCommentLike", map);
+	}
+
 	
 }
 

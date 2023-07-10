@@ -258,8 +258,8 @@
 					<input type="hidden" name="cno" value="${c.cno }">
 					<span>${c.writer }</span>
 					<span>작성일 : ${c.cdate }</span>
-					<span><a href="#" class="btn_comment_like">좋아요 : <span>0</span></a></span>
-					<span><a href="#" class="btn_comment_hate">싫어요 : <span>0</span></a></span>
+					<span><a href="#" class="btn_comment_like">좋아요 : <span>${c.clike }</span></a></span>
+					<span><a href="#" class="btn_comment_hate">싫어요 : <span>${c.chate }</span></a></span>
 				</p>
 				<p>${c.content }</p>
 				<c:if test="${sessionScope.user.id == c.writer }">

@@ -27,6 +27,7 @@ public class BoardCommentLikeController implements Controller {
 			BoardService.getInstance().deleteCommentLike(id,cno);
 			json.put("msg", "해당 댓글에 좋아요 해제 하셨습니다");
 		}
+		response.setCharacterEncoding("utf-8");
 		response.getWriter().println(json.toString());
 		return null;
 	}
