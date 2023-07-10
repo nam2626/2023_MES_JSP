@@ -26,7 +26,7 @@
 	<insert id="insertBoardContentLike" parameterType="Map">
 		insert into board_like values(#{bno},#{id})
 	</insert>
-	<delete id="insertBoardContentLike" parameterType="Map">
+	<delete id="deleteBoardContentLike" parameterType="Map">
 		delete from board_like where bno = #{bno} and id like #{id}
 	</delete>
 	<select id="selectBoardLikeCount" parameterType="int">

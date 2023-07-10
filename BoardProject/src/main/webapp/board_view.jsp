@@ -24,7 +24,9 @@
 				type : "post",
 				dataType : "json",
 				success:function(r){
-					console.log(r);
+					//console.log(r);
+					alert(r.msg);
+					$("#like_count").text(r.blike);
 				}
 			});
 		});
