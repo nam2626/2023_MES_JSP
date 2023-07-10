@@ -16,6 +16,9 @@
 		FROM BOARD B 
 		WHERE B.BNO = #{BNO}
 	</select>
+	<delete id="deleteBoard" parameterType="int">
+		delete from board where bno = #{bno}
+	</delete>
 </mapper>
 
 

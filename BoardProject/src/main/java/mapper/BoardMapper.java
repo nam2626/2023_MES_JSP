@@ -27,6 +27,10 @@ public class BoardMapper {
 		return manager.getSession().selectOne("selectBoard",bno);
 	}
 
+	public int deleteBoard(int bno) {
+		return manager.getSession().delete("deleteBoard",bno);
+	}
+
 	
 }
 

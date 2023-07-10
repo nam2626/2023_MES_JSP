@@ -27,6 +27,10 @@ public class BoardService {
 		return mapper.selectBoard(bno);
 	}
 
+	public int deleteBoard(int bno) {
+		return mapper.deleteBoard(bno);
+	}
+
 	
 }
 

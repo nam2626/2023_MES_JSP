@@ -9,7 +9,9 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script type="text/javascript">
 	$(function(){
-		
+		$("#btn_delete").click(function(){
+			location.href = 'boardDelete.do?bno=${board.bno}';
+		});
 	});
 </script>
 <style type="text/css">
