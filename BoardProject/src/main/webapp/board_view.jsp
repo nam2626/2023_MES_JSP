@@ -158,24 +158,24 @@
 			</td>
 		</tr>
 		<!-- 로그인한 사용자와 글쓴이가 같을때만 수정 삭제 버튼이 나오게끔 처리  -->
-		
+		<c:if test="${sessionScope.user.id == board.writer }">
 		<tr>
-			<td colspan="2"> 
+			<td colspan="2">
 				<button id="btn_update">수정</button>
 				<button id="btn_delete">삭제</button>
 			</td>
 		</tr>
-				
+		</c:if>
 		<tr>
-        <td colspan="2">
-         <div class="comment_form">
-			<form action="commentWrite.do" method="post">
-				<input type="hidden" name="bno" value="">
-				<textarea name="comment" placeholder="댓글을 입력하세요"></textarea>
-				<button>댓글작성</button>
-			</form>
-		</div>
-        </td>
+	        <td colspan="2">
+		         <div class="comment_form">
+					<form action="commentWrite.do" method="post">
+						<input type="hidden" name="bno" value="">
+						<textarea name="comment" placeholder="댓글을 입력하세요"></textarea>
+						<button>댓글작성</button>
+					</form>
+				</div>
+	        </td>
         </tr>
 	</table>
 	<hr>
