@@ -6,6 +6,7 @@ import java.util.Map;
 import config.DBManager;
 import dto.BoardDTO;
 import dto.CommentDTO;
+import dto.FileDTO;
 
 public class BoardMapper {
 	private static BoardMapper instance = new BoardMapper();
@@ -77,6 +78,18 @@ public class BoardMapper {
 	}
 	public int deleteCommentHate(Map<String, Object> map) {
 		return manager.getSession().delete("deleteCommentHate", map);
+	}
+
+	public int selectBoardNo() {
+		return manager.getSession().selectOne("selectBoardNo");
+	}
+
+	public int insertBoard(BoardDTO board) {
+		return manager.getSession().insert("insertBoard", board);
+	}
+
+	public int insertFile(FileDTO item) {
+		return manager.getSession().insert("insertFile", item);
 	}
 
 	

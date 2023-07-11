@@ -1,5 +1,6 @@
 package service;
 
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.List;
@@ -7,6 +8,7 @@ import java.util.Map;
 
 import dto.BoardDTO;
 import dto.CommentDTO;
+import dto.FileDTO;
 import mapper.BoardMapper;
 
 public class BoardService {
@@ -110,6 +112,20 @@ public class BoardService {
 		map.put("id", id);
 		map.put("cno", cno);
 		return mapper.deleteCommentHate(map);
+	}
+
+	public int selectBoardNo() {
+		return mapper.selectBoardNo();
+	}
+
+	public int insertBoard(BoardDTO board) {
+		return mapper.insertBoard(board);
+	}
+
+	public void insertFile(ArrayList<FileDTO> fList) {
+		fList.forEach(item -> {
+			mapper.insertFile(item);
+		});
 	}
 
 	

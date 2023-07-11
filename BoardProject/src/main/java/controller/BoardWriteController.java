@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.function.Consumer;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
@@ -17,6 +18,7 @@ import org.apache.commons.fileupload.servlet.ServletFileUpload;
 import dto.BoardDTO;
 import dto.FileDTO;
 import dto.MemberDTO;
+import service.BoardService;
 import view.ModelAndView;
 
 public class BoardWriteController implements Controller {
@@ -41,6 +43,8 @@ public class BoardWriteController implements Controller {
 		factory.setSizeThreshold(1024*1024);//버퍼 메모리
 		
 		ServletFileUpload upload = new ServletFileUpload(factory);
+		
+		int bno = 0;
 		
 		try {
 			//폼에서 보낸 모든 내용을 받음
@@ -90,7 +94,19 @@ public class BoardWriteController implements Controller {
 				}
 			}
 			//게시글 등록
+			//1. 게시글 번호 받음
+			bno = BoardService.getInstance().selectBoardNo();
+			final int temp = bno;
+			//2. 게시글 DB에 저장
+			board.setBno(bno);
+			BoardService.getInstance().insertBoard(board);
+			
 			//파일 목록 등록
+			//1. FileDTO에 게시글번호(bno)를 저장
+			fList.forEach(t -> t.setBno(temp));
+			//2. DB에 저장
+			BoardService.getInstance().insertFile(fList);
+			
 		} catch (FileUploadException e) {
 			e.printStackTrace();
 		} catch (Exception e) {
@@ -98,7 +114,7 @@ public class BoardWriteController implements Controller {
 		}
 		//게시글 등록 후 해당 게시글을 조회하는 페이지로 이동
 		//boardView.do?bno=새게시글번호
-		return null;
+		return new ModelAndView(request.getContextPath()+"boardView.do?bno="+bno, true);
 	}
 
 }
