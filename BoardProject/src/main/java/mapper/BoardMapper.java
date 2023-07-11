@@ -92,6 +92,10 @@ public class BoardMapper {
 		return manager.getSession().insert("insertFile", item);
 	}
 
+	public List<FileDTO> selectFileList(int bno) {
+		return manager.getSession().selectList("selectFileList", bno);
+	}
+
 	
 }
 

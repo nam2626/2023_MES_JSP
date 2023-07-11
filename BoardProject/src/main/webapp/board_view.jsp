@@ -217,7 +217,9 @@
 		<tr>
 			<td colspan="2">
 				<h3>첨부파일 목록</h3>
-				
+				<c:forEach items="${ fList}" var="f">
+					<p>${f.bno }, ${f.fno }, ${f.path }, ${f.fileName }</p>
+				</c:forEach>
 			</td>
 		</tr>
 		<tr>

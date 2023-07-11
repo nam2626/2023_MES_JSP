@@ -128,6 +128,10 @@ public class BoardService {
 		});
 	}
 
+	public List<FileDTO> selectFileList(int bno) {
+		return mapper.selectFileList(bno);
+	}
+
 	
 }
 
