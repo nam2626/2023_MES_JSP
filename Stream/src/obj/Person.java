@@ -4,7 +4,8 @@ import java.io.Serializable;
 //직렬화를 위해 Serializable 사용
 public class Person implements Serializable{
 	private String name;
-	private int age;
+	//transient 직렬화 대상에서 제외
+	private transient int age;
 	
 	public Person(String name, int age) {
 		super();
