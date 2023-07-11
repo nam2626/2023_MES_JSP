@@ -114,7 +114,7 @@ public class BoardWriteController implements Controller {
 		}
 		//게시글 등록 후 해당 게시글을 조회하는 페이지로 이동
 		//boardView.do?bno=새게시글번호
-		return new ModelAndView(request.getContextPath()+"boardView.do?bno="+bno, true);
+		return new ModelAndView(request.getContextPath()+"/boardView.do?bno="+bno, true);
 	}
 
 }
