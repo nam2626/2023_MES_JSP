@@ -60,11 +60,38 @@ public class BoardWriteController implements Controller {
 				//사용자가 입력한 내용인지 확인
 				if(item.isFormField()) {
 					//게시글 내용
+					switch(item.getFieldName()) {
+					case "title":
+						board.setTitle(item.getString("utf-8"));
+						break;
+					case "content":
+						board.setContent(item.getString("utf-8"));
+					}
 				}else {
-					//파일 업로드
+					//파일 업로드 처리
+					//전송된 파일이 없으면 건너뜀
+					if(item.getSize() == 0) continue;
+					//저장할 파일 경로 및 파일명 셋팅
+					System.out.println("매개변수 명 : " + item.getFieldName());
+					System.out.println("파일명 : " + item.getName());
+					System.out.println("파일크기 : " + item.getSize());
+					System.out.println("파일타입 : " + item.getContentType());
+					
+					//저장할 파일 경로 및 파일명 셋팅
+					File uploadFile = new File(userRoot,item.getName());
+					FileDTO dto = new FileDTO();
+					dto.setPath(uploadFile.getAbsolutePath());
+					dto.setFno(++fno);
+					dto.setType(item.getContentType());
+					fList.add(dto);
+					
+					//최종 업로드 처리
+					item.write(uploadFile);
 				}
 			}
 		} catch (FileUploadException e) {
+			e.printStackTrace();
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		return null;
