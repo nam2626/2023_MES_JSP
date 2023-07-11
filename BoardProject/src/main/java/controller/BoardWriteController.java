@@ -2,6 +2,7 @@ package controller;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.ServletException;
@@ -13,6 +14,9 @@ import org.apache.commons.fileupload.FileUploadException;
 import org.apache.commons.fileupload.disk.DiskFileItemFactory;
 import org.apache.commons.fileupload.servlet.ServletFileUpload;
 
+import dto.BoardDTO;
+import dto.FileDTO;
+import dto.MemberDTO;
 import view.ModelAndView;
 
 public class BoardWriteController implements Controller {
@@ -41,9 +45,24 @@ public class BoardWriteController implements Controller {
 		try {
 			//폼에서 보낸 모든 내용을 받음
 			List<FileItem> list = upload.parseRequest(request);
+			//DB에 저장할 게시글 정보를 담을 객체
+			BoardDTO board = new BoardDTO();
+			//DB에 저장할 파일 목록
+			ArrayList<FileDTO> fList = new ArrayList<FileDTO>();
+			//파일 번호
+			int fno = 0;
+			//작성자 저장
+			board.setWriter(((MemberDTO)request.getSession().getAttribute("user")).getId());
 			
 			for(FileItem item : list) {
 				System.out.println(item.toString());
+				//아이템이 폼, 파일인지 구분
+				//사용자가 입력한 내용인지 확인
+				if(item.isFormField()) {
+					//게시글 내용
+				}else {
+					//파일 업로드
+				}
 			}
 		} catch (FileUploadException e) {
 			e.printStackTrace();
