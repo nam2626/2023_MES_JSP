@@ -43,6 +43,19 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script type="text/javascript">
 	$(function() {
+		$("#plus").click(function () {
+			let fileCount = $('.file_form input').length;
+			//console.log(fileCount);
+			if(fileCount < 5){
+				$('.file_form').append(`<p><input type="file" name="file\${fileCount+1}"></p>`);
+			}
+		});
+		$("#minus").click(function () {
+			let fileCount = $('.file_form input').length;
+			if(fileCount > 1){
+				$('.file_form input').last().remove();
+			}
+		});
 		
 	});
 </script>
