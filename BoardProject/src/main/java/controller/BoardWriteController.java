@@ -89,6 +89,8 @@ public class BoardWriteController implements Controller {
 					item.write(uploadFile);
 				}
 			}
+			//게시글 등록
+			//파일 목록 등록
 		} catch (FileUploadException e) {
 			e.printStackTrace();
 		} catch (Exception e) {
