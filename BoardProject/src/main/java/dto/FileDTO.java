@@ -39,6 +39,7 @@ public class FileDTO {
 	public void setPath(String path) {
 		this.path = path;
 		File file = new File(path);
+		setFileName(file.getName());
 		switch (file.getName().substring(file.getName().lastIndexOf('.') + 1)) {
 		case "png":
 		case "jpg":
