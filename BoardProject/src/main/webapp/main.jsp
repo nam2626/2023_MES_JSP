@@ -82,6 +82,7 @@
 				<tfoot>
 					<tr>
 					<td colspan="7">
+						<a href="boardWriteView.do" class="btn_write">글쓰기</a>
 					</td>
 					</tr>
 				</tfoot>

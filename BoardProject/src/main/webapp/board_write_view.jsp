@@ -64,7 +64,7 @@
 	<jsp:include page="template/header.jsp"></jsp:include>
 	<section>
 		<h2>글쓰기</h2>
-		<form action="" method="post">
+		<form action="boardWrite.do" method="post" enctype="multipart/form-data">
 			<input type="hidden" name="writer" value="${sessionScope.user.id }">
 			<input type="text" name="title" placeholder="제목을 입력하세요">
 			<textarea name="content" placeholder="내용을 입력하세요"></textarea>
