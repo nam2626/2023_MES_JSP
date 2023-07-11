@@ -63,8 +63,12 @@
 	<delete id="deleteCommentHate" parameterType="Map">
 		delete from board_comment_hate where cno = #{cno} and id like #{id}
 	</delete>
+	<select id="selectBoardNo" resultType="int">
+		select board_bno_seq.nextval from dual
+	</select>
+	<insert id="insertBoard" parameterType="board">
 	
-	
+	</insert>
 </mapper>
 
 
