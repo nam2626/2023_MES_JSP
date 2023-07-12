@@ -94,7 +94,12 @@
 									end="${pagging.endPageOfPageGroup }" var="i">
 							<a href="main.do?pageNo=${i }">${i }</a>	
 						</c:forEach> 
+						 <!-- 다음 페이지 그룹으로 이동 - 다음 페이지 그룹이 있을때만
+						 		▶ 를 클릭시 다음 그룹의 첫번째 페이지로 이동
+						 -->
 						 
+						
+							 
 						<a href="boardWriteView.do" class="btn_write">글쓰기</a>
 					</td>
 					</tr>
