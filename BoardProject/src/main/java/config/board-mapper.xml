@@ -76,6 +76,13 @@
 	<select id="selectFileList" parameterType="int" resultType="file">
 		select * from board_file where bno = #{bno} order by fno asc
 	</select>
+	<select id="selectBoardList" parameterType="Map" resultType="board">
+		SELECT b.* FROM board_view b
+		WHERE CEIL(b.rw / #{pageOfContentCount}) = #{pageNo}
+	</select>
+	<select id="selectBoardCount" resultType="int">
+		select count(*) from board_view
+	</select>
 </mapper>
 
 
