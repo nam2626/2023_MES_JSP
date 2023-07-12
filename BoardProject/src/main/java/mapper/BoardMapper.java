@@ -96,6 +96,14 @@ public class BoardMapper {
 		return manager.getSession().selectList("selectFileList", bno);
 	}
 
+	public int selectBoardCount() {
+		return manager.getSession().selectOne("selectBoardCount");
+	}
+
+	public List<BoardDTO> selectBoardList(Map<String, Object> map) {
+		return manager.getSession().selectList("selectBoardList", map);
+	}
+
 	
 }
 

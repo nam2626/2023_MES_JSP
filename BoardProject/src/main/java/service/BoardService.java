@@ -132,6 +132,17 @@ public class BoardService {
 		return mapper.selectFileList(bno);
 	}
 
+	public int selectBoardCount() {
+		return mapper.selectBoardCount();
+	}
+
+	public List<BoardDTO> selectBoardList(int pageNo, int pageOfContentCount) {
+		Map<String, Object> map = new HashMap<String, Object>();
+		map.put("pageNo", pageNo);
+		map.put("pageOfContentCount", pageOfContentCount);
+		return mapper.selectBoardList(map);
+	}
+
 	
 }
 
