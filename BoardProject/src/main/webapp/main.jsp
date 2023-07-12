@@ -82,6 +82,19 @@
 				<tfoot>
 					<tr>
 					<td colspan="7">
+						<!-- 
+								페이징 결과 출력
+									PaggingVO에 있는 getStartPageOfPageGroup
+													getEndPageOfPageGroup
+									이용해서 jstl의 forEach를 이용해서 게시판 페이지 번호를 출력
+									
+									<a href="main.do?pageNo=페이지번호">페이지번호</a>	
+						 -->
+						<c:forEach begin="${pagging.startPageOfPageGroup }" 
+									end="${pagging.endPageOfPageGroup }" var="i">
+							<a href="main.do?pageNo=${i }">${i }</a>	
+						</c:forEach> 
+						 
 						<a href="boardWriteView.do" class="btn_write">글쓰기</a>
 					</td>
 					</tr>

@@ -28,12 +28,12 @@ public class PaggingVO {
 	
 	//전체 페이지 그룹 개수 : 전체 페이지 개수 / 게시판 하단에 나타낼 페이지 번호 개수 + (나머지가 0 아니면 1)
 	public int getTotalPageGroup() {
-		return getTotalPage() / pageGroupOfCount + (getTotalPage() / pageGroupOfCount == 0 ? 0 : 1);
+		return getTotalPage() / pageGroupOfCount + (getTotalPage() % pageGroupOfCount == 0 ? 0 : 1);
 	}
 	
 	//현재 페이지 그룹 번호
 	public int getNowPageGroupNo() {
-		return currentPageNo / pageGroupOfCount + (currentPageNo / pageGroupOfCount == 0 ? 0 : 1);
+		return currentPageNo / pageGroupOfCount + (currentPageNo % pageGroupOfCount == 0 ? 0 : 1);
 	}
 	
 	//현재 페이지 그룹 시작 페이지 번호 : (현재 페이지 그룹 번호 - 1) * 게시판 하단에 나타낼 페이지 번호 개수 + 1
@@ -62,8 +62,14 @@ public class PaggingVO {
 	@Override
 	public String toString() {
 		return "PaggingVO [count=" + count + ", currentPageNo=" + currentPageNo + ", pageOfContentCount="
-				+ pageOfContentCount + ", pageGroupOfCount=" + pageGroupOfCount + "]";
+				+ pageOfContentCount + ", pageGroupOfCount=" + pageGroupOfCount + ", getCurrentPageNo()="
+				+ getCurrentPageNo() + ", getTotalPage()=" + getTotalPage() + ", getTotalPageGroup()="
+				+ getTotalPageGroup() + ", getNowPageGroupNo()=" + getNowPageGroupNo() + ", getStartPageOfPageGroup()="
+				+ getStartPageOfPageGroup() + ", getEndPageOfPageGroup()=" + getEndPageOfPageGroup()
+				+ ", isPriviousPageGroup()=" + isPriviousPageGroup() + ", isNextPageGroup()=" + isNextPageGroup() + "]";
 	}
+
+	
 	
 	
 }

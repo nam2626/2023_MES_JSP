@@ -21,15 +21,15 @@ public class MainController implements Controller {
 		int pageNo = 1;
 		if(request.getParameter("pageNo") != null)
 			pageNo = Integer.parseInt(request.getParameter("pageNo")); 
-		//페이지당 게시글 개수(값이 없으면 기본값 처리 - 20), 페이지 그룹 개수(기본값)
-		int pageOfContentCount = 20;
+		//페이지당 게시글 개수(값이 없으면 기본값 처리 - 10), 페이지 그룹 개수(기본값)
+		int pageOfContentCount = 10;
 		if(request.getParameter("contentCount") != null)
 			pageOfContentCount = Integer.parseInt(request.getParameter("contentCount"));
 		//전체 게시글 개수
 		int count = BoardService.getInstance().selectBoardCount();
 		//PaggingVO 생성 
 		PaggingVO vo = new PaggingVO(count, pageNo, pageOfContentCount, 5);
-		
+		System.out.println(vo.toString());
 		List<BoardDTO> list = BoardService.getInstance().selectBoardList(pageNo, pageOfContentCount);
 		
 		request.setAttribute("list", list);
